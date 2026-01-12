@@ -54,23 +54,7 @@ export default function Random() {
               </p>
             </section>
 
-            <section>
-              <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-4">Current Interests</h3>
-              <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-gray-300">🎮</span> 
-                  <span>Currently playing: <span className="text-gray-800 dark:text-gray-200">Elden Ring</span></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-gray-300">🍜</span> 
-                  <span>Best London find: <span className="text-gray-800 dark:text-gray-200">Miga (1 Mare St)</span></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-gray-300">🎧</span> 
-                  <span>Genre rotation: <span className="text-gray-800 dark:text-gray-200">Korean Indie</span></span>
-                </li>
-              </ul>
-            </section>
+           
           </div>
         </div>
       </main>

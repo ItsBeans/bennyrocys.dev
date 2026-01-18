@@ -31,7 +31,7 @@ export default function Random() {
             <section className="space-y-8">
               <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-6">Gaming Stats</h3>
               <ChessStatsCard username={"bennyhahahaha"} />
-              <LeagueLiveCard summonerName={"raon"} tagline={"lmao"} />
+              <LeagueLiveCard summonerName={"raon"} tagline={"hehe"} />
             </section>
           </div>
 

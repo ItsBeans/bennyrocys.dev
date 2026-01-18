@@ -8,7 +8,7 @@ export async function getLeagueStats() {
     const options = { headers: { "X-Riot-Token": apiKey } };
     
     const accountRes = await fetch(
-      `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/raon/lmao`,
+      `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/raon/hehe`,
       options
     );
     const { puuid } = await accountRes.json();

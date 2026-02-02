@@ -5,6 +5,9 @@ import Header from './Header';
 import { DockDemo } from './Footer2';
 import WordRotate from '@/components/ui/word-rotate';
 
+// Replace with your current public playlist ID from Spotify (Share → Embed playlist)
+const SPOTIFY_PLAYLIST_ID = '3MsFaIs8y5Ab86JJEXEmEJ';
+
 export default function Home() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
 
@@ -58,7 +61,7 @@ export default function Home() {
               )}
 
               <iframe
-                src="https://open.spotify.com/embed/playlist/1I8h9L63fLqP33yNfI9Y6r?utm_source=generator" 
+                src={`https://open.spotify.com/embed/playlist/${SPOTIFY_PLAYLIST_ID}?utm_source=generator`}
                 width="100%"
                 height="352"
                 frameBorder="0"
@@ -67,8 +70,16 @@ export default function Home() {
                 onLoad={() => setIframeLoaded(true)}
                 className={`transition-opacity duration-700 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                 style={{ borderRadius: '12px' }}
-              ></iframe>
+              />
             </div>
+            <a
+              href={`https://open.spotify.com/playlist/${SPOTIFY_PLAYLIST_ID}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 text-sm text-gray-500 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
+            >
+              Open in Spotify
+            </a>
           </div>
         </div>
       </div>

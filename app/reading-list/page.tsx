@@ -63,7 +63,7 @@ export default function Reading() {
   return (
     <>
       <Header />
-      <div className="max-w-3xl mx-auto p-12 text-left min-h-screen">
+      <div className="max-w-3xl mx-auto p-12 text-left min-h-screen pb-28">
         <h1 className="text-6xl font-bold text-gray-700 dark:text-white italic mb-4">
           bookshelf
         </h1>

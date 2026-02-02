@@ -54,13 +54,9 @@ const DATA = {
 
 export function DockDemo() {
   return (
-   
-      
-      
-        <Dock direction="middle">
-          
-          
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-4 pt-2 pointer-events-none [&>*]:pointer-events-auto">
+      <Dock direction="middle">
+        {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name}>
             
                   <Link
@@ -77,10 +73,7 @@ export function DockDemo() {
              
             </DockIcon>
           ))}
-          
-        
-        </Dock>
-    
-    
+      </Dock>
+    </div>
   );
 }

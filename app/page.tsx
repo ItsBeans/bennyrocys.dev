@@ -14,14 +14,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="max-w-3xl mx-auto p-12 text-left">
+      <div className="max-w-3xl mx-auto p-12 text-left pb-28">
         <WordRotate
           className="text-8xl text-gray-700 dark:text-white"
           words={["hello", "안녕하세요", "你好", "こんにちは", "bonjour", "ciao"]}
         />
         
         <div className="flex flex-col md:flex-row md:space-x-8 md:gap-12 mt-8">
-          <div className="flex-grow mb-8 md:mb-0 md:w-2/3">
+          <div className="flex-grow mb-8 md:mb-0 md:w-3/5">
             <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
               <p>
                 my name is Benny.
@@ -48,38 +48,26 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-shrink-0 w-full md:w-1/3">
+          <div className="flex-shrink-0 w-full md:w-2/5">
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
               my current work playlist.
             </p>
-            
-            <div className="relative w-full rounded-[12px] overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-lg min-h-[352px]">
+            <div className="relative w-full h-[400px] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60">
               {!iframeLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center animate-pulse">
-                   <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 dark:border-gray-600 dark:border-t-gray-300 rounded-full animate-spin" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 dark:border-gray-600 dark:border-t-gray-300 rounded-full animate-spin" />
                 </div>
               )}
-
               <iframe
                 src={`https://open.spotify.com/embed/playlist/${SPOTIFY_PLAYLIST_ID}?utm_source=generator`}
-                width="100%"
-                height="352"
+                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
                 onLoad={() => setIframeLoaded(true)}
-                className={`transition-opacity duration-700 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
-                style={{ borderRadius: '12px' }}
+                title="Spotify playlist"
               />
             </div>
-            <a
-              href={`https://open.spotify.com/playlist/${SPOTIFY_PLAYLIST_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 text-sm text-gray-500 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
-            >
-              Open in Spotify
-            </a>
           </div>
         </div>
       </div>

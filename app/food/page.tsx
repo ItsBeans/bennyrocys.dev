@@ -5,7 +5,7 @@ import Image from 'next/image';
 const foodImages = [
     {src: "/food1.jpg", caption: "Duck Ramen, South Korea"},
     {src: "/food2.jpg", caption: "Garlic Pasta, South Korea"},
-    {src: "/food3.jpg", caption: " 떡볶이, South Korea"},
+    {src: "/food3.jpg", caption: "떡볶이, South Korea"},
     {src: "/food4.jpg", caption: "망고빙수, South Korea"},
     {src: "/food5.jpg", caption: "삼겹살, South Korea"},
     {src: "/food6.jpg", caption: "Ramen, London UK"},
@@ -20,7 +20,7 @@ export default function Food() {
     return (
         <>
         <Header/>
-        <div className="max-w-4xl mx-auto p-8">
+        <div className="max-w-4xl mx-auto p-8 pb-28">
             <h1 className="text-6xl font-bold text-black dark:text-white italic mb-12">
                 favourite foods <span role="img" aria-label="food">🍕</span>
             </h1>

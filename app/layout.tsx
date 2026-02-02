@@ -17,10 +17,12 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "welcome",
-  description: "made by Benny Rocys",
-  icons: {
-    icon: '/favicon.png',
+  title: "Benny Rocys",
+  description: "Software engineer in London. CS with AI at King's College. ML, web dev, chess, and good food.",
+  icons: { icon: '/favicon.png' },
+  openGraph: {
+    title: "Benny Rocys",
+    description: "Software engineer in London. CS with AI at King's College.",
   },
 };
 

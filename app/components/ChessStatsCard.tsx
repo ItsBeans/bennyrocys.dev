@@ -24,9 +24,10 @@ export default function ChessStatsCard({ username }: { username: string }) {
           rapid: data.chess_rapid?.last?.rating ?? null,
           puzzle: data.tactics?.highest?.rating ?? null,
         });
-        setLoading(false);
       } catch (err) {
         console.error('Error fetching stats:', err);
+      } finally {
+        setLoading(false);
       }
     }
     fetchStats();

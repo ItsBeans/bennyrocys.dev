@@ -25,9 +25,9 @@ export default function LeagueLiveCard({ summonerName, tagline }: { summonerName
     return 'text-emerald-500';
   };
 
-  const winRate = data ? Math.round((data.wins / (data.wins + data.losses)) * 100) || 0 : 0;
+  const totalGames = data ? data.wins + data.losses : 0;
+  const winRate = totalGames > 0 ? Math.round((data!.wins / totalGames) * 100) : 0;
   const rankColor = getRankColor(data?.rank);
-  const barColor = rankColor.replace('text', 'bg');
 
   return (
     <a 
@@ -49,34 +49,34 @@ export default function LeagueLiveCard({ summonerName, tagline }: { summonerName
           <div className="flex items-center justify-center py-8 text-gray-400 text-sm gap-2">
             <Loader2 className="animate-spin w-4 h-4" />
           </div>
+        ) : !data?.rank ? (
+          <p className="py-8 text-center text-sm text-gray-400">Rank unavailable</p>
         ) : (
           <div className="space-y-6">
-            
             <div className="flex items-end gap-2">
               <span className={`text-4xl font-bold leading-none ${rankColor}`}>
                 {data.rank}
               </span>
-              <span className="text-xl font-bold text-gray-400 pb-0.5">{data.tier}</span>
+              {data.tier != null && (
+                <span className="text-xl font-bold text-gray-400 pb-0.5">{data.tier}</span>
+              )}
             </div>
-
-            
-        
-
-           
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="space-y-1">
-                <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-gray-400">
-                  LP Points
-                </span>
-                <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{data.lp} LP</p>
+            {data.tier != null && (
+              <div className="grid grid-cols-2 gap-4 pt-2">
+                <div className="space-y-1">
+                  <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-gray-400">
+                    LP Points
+                  </span>
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{data.lp} LP</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-gray-400">
+                    Win Rate
+                  </span>
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{winRate}%</p>
+                </div>
               </div>
-              <div className="space-y-1">
-                <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-gray-400">
-                   Win Rate
-                </span>
-                <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{winRate}%</p>
-              </div>
-            </div>
+            )}
           </div>
         )}
       </div>

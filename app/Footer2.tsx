@@ -1,6 +1,6 @@
 "use client";
 
-import { MailIcon } from "lucide-react";
+import { MailIcon, FileText } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Dock, DockIcon } from "@/components/ui/dock";
@@ -9,6 +9,7 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 
 const Icons = {
   email: (props: IconProps) => <MailIcon {...props} />,
+  cv: (props: IconProps) => <FileText {...props} />,
   linkedin: (props: IconProps) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>LinkedIn</title>
@@ -42,9 +43,14 @@ const DATA = {
         url: "https://www.linkedin.com/in/benny-rocys/",
         icon: Icons.linkedin,
       },
-    
+      CV: {
+        name: "cv",
+        url: "/cv.pdf",
+        icon: Icons.cv,
+        openInNewTab: true,
+      },
       email: {
-        name: "",
+        name: "email",
         url: "mailto:bennyrocys@gmail.com",
         icon: Icons.email,
       },
@@ -58,15 +64,15 @@ export function DockDemo() {
       <Dock direction="middle">
         {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name}>
-            
-                  <Link
-                    href={social.url}
-                    aria-label={social.name}
-                    
-                      
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
+              <Link
+                href={social.url}
+                aria-label={social.name}
+                {...('openInNewTab' in social && social.openInNewTab
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                <social.icon className="size-4" />
+              </Link>
                
             
                 

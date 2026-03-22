@@ -6,6 +6,7 @@ import ChessStatsCard from "../components/ChessStatsCard";
 import LeagueLiveCard from "../components/LeagueLiveCard";
 import NowPlaying from "../components/NowPlaying";
 import { motion } from "framer-motion";
+import { imgUrl } from "@/lib/cdn";
 
 export default function Random() {
   return (
@@ -30,7 +31,7 @@ export default function Random() {
 
             <section className="space-y-8">
               <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-6">Gaming Stats</h3>
-              <ChessStatsCard username={"bennyhahahaha"} />
+              <ChessStatsCard username={"beanshaha"} />
               <LeagueLiveCard summonerName={"raon"} tagline={"hehe"} />
             </section>
           </div>
@@ -44,9 +45,9 @@ export default function Random() {
                 className="relative rounded-2xl overflow-hidden shadow-xl"
               >
                 <img
-                  src="/raon.jpeg"
+                  src={imgUrl('raon (1).jpeg')}
                   alt="Raon the cat"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto block"
                 />
               </motion.div>
               <p className="text-xs text-gray-400 mt-4 italic text-center">

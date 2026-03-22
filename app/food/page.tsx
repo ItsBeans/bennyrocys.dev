@@ -1,20 +1,21 @@
 import Header from "../Header";
 import { DockDemo } from '../Footer2';
 import Image from 'next/image';
+import { imgUrl } from '@/lib/cdn';
 
 const foodImages = [
-    {src: "/food1.jpg", caption: "Duck Ramen, South Korea"},
-    {src: "/food2.jpg", caption: "Garlic Pasta, South Korea"},
-    {src: "/food3.jpg", caption: "떡볶이, South Korea"},
-    {src: "/food4.jpg", caption: "망고빙수, South Korea"},
-    {src: "/food5.jpg", caption: "삼겹살, South Korea"},
-    {src: "/food6.jpg", caption: "Ramen, London UK"},
-    {src: "/food7.jpg", caption: "Cheeseburger, London UK"},
-    {src: "/food8.jpg", caption: "삼겹살, South Korea"},
-    {src: "/food9.jpeg", caption: "돈까스, South Korea"},
-    {src: "/food10.jpeg", caption: "Eggs Benedict, London UK"},
-    {src: "/food11.jpeg", caption: "갈비, South Korea"},
-];
+  { filename: 'food1 (1).jpg', caption: 'Duck Ramen, South Korea' },
+  { filename: 'food2 (1).jpg', caption: 'Garlic Pasta, South Korea' },
+  { filename: 'food3 (1).jpg', caption: '떡볶이, South Korea' },
+  { filename: 'food4 (1).jpg', caption: '망고빙수, South Korea' },
+  { filename: 'food5 (1).jpg', caption: '삼겹살, South Korea' },
+  { filename: 'food6 (1).jpg', caption: 'Ramen, London UK' },
+  { filename: 'food7 (1).jpg', caption: 'Cheeseburger, London UK' },
+  { filename: 'food8 (1).jpg', caption: '삼겹살, South Korea' },
+  { filename: 'food9 (1).jpeg', caption: '돈까스, South Korea' },
+  { filename: 'food10 (1).jpeg', caption: 'Eggs Benedict, London UK' },
+  { filename: 'food11 (1).jpeg', caption: '갈비, South Korea' },
+].map((f) => ({ ...f, src: imgUrl(f.filename) }));
   
 export default function Food() {
     return (
@@ -31,7 +32,7 @@ export default function Food() {
             {/* Gallery Grid with Lazy Loading */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {foodImages.map((food, index) => (
-                    <div key={index} className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow group dark:shadow-gray-800">
+                    <div key={food.filename} className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow group dark:shadow-gray-800">
                         <div className="aspect-square relative">
                             <Image
                                 src={food.src}

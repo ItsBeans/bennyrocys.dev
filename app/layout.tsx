@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import { Analytics } from '@vercel/analytics/react';
+import { imgUrl } from "@/lib/cdn";
 
 
 const geistSans = localFont({
@@ -19,7 +20,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Benny Rocys",
   description: "Software engineer in London. CS with AI at King's College. ML, web dev, chess, and good food.",
-  icons: { icon: '/favicon.png' },
+  icons: { icon: imgUrl('favicon.png') },
   openGraph: {
     title: "Benny Rocys",
     description: "Software engineer in London. CS with AI at King's College.",

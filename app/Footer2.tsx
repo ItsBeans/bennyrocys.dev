@@ -45,7 +45,7 @@ const DATA = {
       },
       CV: {
         name: "cv",
-        url: "/cv.pdf",
+        url: "https://img.bennyrocys.dev/CV-Benny.pdf",
         icon: Icons.cv,
         openInNewTab: true,
       },
